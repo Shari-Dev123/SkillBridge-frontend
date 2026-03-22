@@ -13,7 +13,6 @@
   backdrop-filter: blur(2px);
   animation: overlayFadeIn 0.2s ease;
 }
-
 @keyframes overlayFadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
