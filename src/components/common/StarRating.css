@@ -1,0 +1,44 @@
+/* StarRating.css */
+
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stars {
+  display: flex;
+  gap: 1px;
+}
+
+.star {
+  display: flex;
+  align-items: center;
+  color: var(--gray-300);
+  line-height: 1;
+  transition: var(--transition);
+}
+
+.star.filled {
+  color: #ffbe00;
+}
+
+.star.interactive {
+  cursor: pointer;
+}
+
+.star.interactive:hover {
+  color: #ffbe00;
+  transform: scale(1.1);
+}
+
+.rating-value {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: #ffbe00;
+}
+
+.rating-count {
+  font-size: var(--font-size-sm);
+  color: var(--gray-500);
+}

@@ -1,0 +1,531 @@
+.gig-detail-page {
+  padding: var(--space-xl) 0 var(--space-3xl);
+  background: var(--white);
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.gig-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+/* Breadcrumb */
+.gig-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--gray-500);
+  margin-bottom: var(--space-md);
+}
+
+.gig-breadcrumb a {
+  color: var(--gray-500);
+  transition: var(--transition);
+}
+
+.gig-breadcrumb a:hover {
+  color: var(--primary);
+}
+
+/* Title */
+.gig-detail-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.3;
+  margin-bottom: var(--space-md);
+}
+
+/* Seller row */
+.gig-seller-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.gig-seller-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.gig-seller-name {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.gig-orders-count {
+  font-size: var(--font-size-sm);
+  color: var(--gray-500);
+}
+
+/* Gallery */
+.gig-gallery {
+  margin-bottom: var(--space-xl);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.gig-gallery__main {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background: var(--gray-100);
+}
+
+.gig-gallery__main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gig-gallery__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  background: var(--gray-100);
+}
+
+.gig-gallery__thumbs {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: var(--gray-100);
+  border-top: 1px solid var(--border-color);
+}
+
+.gig-gallery__thumb {
+  width: 72px;
+  height: 52px;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+}
+
+.gig-gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gig-gallery__thumb.active {
+  border-color: var(--primary);
+}
+
+/* Sections */
+.gig-section {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.gig-section:last-child {
+  border-bottom: none;
+}
+
+.gig-section-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-md);
+}
+
+.gig-description {
+  font-size: var(--font-size-md);
+  color: var(--gray-600);
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+/* Tags */
+.gig-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.gig-tag {
+  padding: 6px 14px;
+  background: var(--gray-100);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-sm);
+  color: var(--gray-700);
+  transition: var(--transition);
+}
+
+.gig-tag:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+/* Reviews */
+.gig-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.review-item {
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.review-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.review-name {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.review-date {
+  font-size: var(--font-size-sm);
+  color: var(--gray-400);
+  margin-left: auto;
+}
+
+.review-comment {
+  font-size: var(--font-size-md);
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* ── Order Box ── */
+.order-box {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  position: sticky;
+  top: calc(var(--navbar-height) + var(--space-md));
+}
+
+.order-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.order-tab {
+  flex: 1;
+  padding: 12px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--gray-500);
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+  text-transform: capitalize;
+}
+
+.order-tab:hover {
+  color: var(--gray-800);
+}
+
+.order-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.order-pkg {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.order-pkg__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.order-pkg__name {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--gray-900);
+  text-transform: capitalize;
+}
+
+.order-pkg__price {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--gray-900);
+}
+
+.order-pkg__desc {
+  font-size: var(--font-size-sm);
+  color: var(--gray-500);
+  margin-bottom: var(--space-sm);
+  line-height: 1.6;
+}
+
+.order-pkg__meta {
+  font-size: var(--font-size-sm);
+  color: var(--gray-600);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.order-box .btn {
+  margin: var(--space-md) var(--space-lg);
+  width: calc(100% - var(--space-lg) * 2);
+}
+
+.order-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 0 var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.order-divider::before,
+.order-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.order-divider span {
+  font-size: var(--font-size-sm);
+  color: var(--gray-400);
+}
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-md);
+}
+
+.modal-box {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  width: 100%;
+  max-width: 520px;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.modal-close {
+  font-size: 18px;
+  color: var(--gray-500);
+  padding: 4px 8px;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background: var(--gray-100);
+  color: var(--gray-900);
+}
+
+.modal-body {
+  padding: var(--space-lg);
+}
+
+.modal-gig-info {
+  background: var(--gray-100);
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.modal-gig-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.modal-gig-pkg {
+  font-size: var(--font-size-sm);
+  color: var(--gray-500);
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .gig-detail-layout {
+    grid-template-columns: 1fr 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gig-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .gig-detail-right {
+    order: -1;
+  }
+
+  .order-box {
+    position: static;
+  }
+
+  .gig-gallery__main {
+    height: 260px;
+  }
+}
+/* ─────────────────────────────────────────────────────────────
+   GigDetail.css  — paste these additions into your existing file
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Unavailable Banner (was all inline) ── */
+.gig-unavail-banner {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #fef2f2;
+  border: 1.5px solid #fecaca;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+}
+
+.gig-unavail-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.gig-unavail-title {
+  font-weight: 700;
+  color: #dc2626;
+  font-size: 14px;
+  margin: 0 0 4px;
+}
+
+.gig-unavail-msg {
+  font-size: 13px;
+  color: #b91c1c;
+  font-style: italic;
+  margin: 0 0 4px;
+}
+
+.gig-unavail-dates {
+  font-size: 12px;
+  color: #ef4444;
+  margin: 0;
+}
+
+.gig-unavail-contact {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--gray-500);
+  margin: 6px 0 0;
+}
+
+/* ── Gallery placeholder (replaces emoji) ── */
+.gig-gallery__placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  color: var(--gray-300);
+}
+
+/* ── Order box unavailable notice (was inline) ── */
+.order-box-unavail {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef2f2;
+  border-bottom: 1px solid #fecaca;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #dc2626;
+}
+
+/* ── Delivery meta with icon ── */
+.order-pkg__delivery {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ── Disabled order button ── */
+.btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Modal close button icon alignment ── */
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ── Spinner inside modal button ── */
+.gig-btn-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.gig-spinner {
+  animation: gigDetailSpin 0.7s linear infinite;
+}
+
+@keyframes gigDetailSpin {
+  to { transform: rotate(360deg); }
+}

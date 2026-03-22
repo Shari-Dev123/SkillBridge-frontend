@@ -1,0 +1,89 @@
+.user-avatar {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary, #1dbf73);
+  color: white;
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+}
+
+.user-avatar--editable {
+  cursor: pointer;
+}
+
+/* Image */
+.user-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Initials fallback */
+.user-avatar__initials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Camera hover overlay */
+.user-avatar__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  border-radius: 50%;
+}
+
+.user-avatar--editable:hover .user-avatar__overlay {
+  opacity: 1;
+}
+
+.user-avatar__camera {
+  font-size: 1.4em;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+}
+
+/* Upload spinner overlay */
+.user-avatar__uploading {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.user-avatar__spinner {
+  width: 40%;
+  height: 40%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: ua-spin 0.7s linear infinite;
+}
+
+@keyframes ua-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Size variants — border ring for lg/xl */
+.user-avatar--lg,
+.user-avatar--xl {
+  box-shadow: 0 0 0 3px var(--white, #fff), 0 0 0 5px var(--border-color, #e4e5e7);
+}
