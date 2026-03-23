@@ -17,6 +17,7 @@ import StarRating from "../../components/common/StarRating.jsx";
 import Loader from "../../components/common/Loader.jsx";
 import toast from "react-hot-toast";
 import "./Dashboard.css";
+import WarningBanner from "../../components/common/WarningBanner.jsx";
 
 const BuyerDashboard = () => {
   const { user } = useAuth();
@@ -74,7 +75,7 @@ const BuyerDashboard = () => {
   return (
     <div className="dashboard-page">
       <div className="container">
-
+        <WarningBanner warning={user?.warning} />
         {/* Header */}
         <div className="dashboard-header">
           <div>

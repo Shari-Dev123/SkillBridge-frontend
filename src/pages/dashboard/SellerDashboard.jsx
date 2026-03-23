@@ -27,6 +27,7 @@ import Loader from "../../components/common/Loader.jsx";
 import AvailabilityModal from "../../components/common/AvailabilityModal.jsx";
 import toast from "react-hot-toast";
 import "./Dashboard.css";
+import WarningBanner from "../../components/common/WarningBanner.jsx";
 
 const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
@@ -227,7 +228,7 @@ const SellerDashboard = () => {
   return (
     <div className="dashboard-page">
       <div className="container">
-
+      <WarningBanner warning={user?.warning} />
         {/* Header */}
         <div className="dashboard-header">
           <div className="db-header-left">

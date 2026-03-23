@@ -1,0 +1,59 @@
+/* WarningBanner.css */
+.wb-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fff7ed;
+  border: 1.5px solid #fed7aa;
+  border-left: 4px solid #f97316;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  animation: wbSlide 0.3s ease;
+}
+
+@keyframes wbSlide {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.wb-icon {
+  color: #f97316;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.wb-content {
+  flex: 1;
+}
+
+.wb-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #c2410c;
+  margin: 0 0 3px;
+}
+
+.wb-message {
+  font-size: 13px;
+  color: #9a3412;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.wb-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #f97316;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.wb-close:hover {
+  background: #fed7aa;
+}

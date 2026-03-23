@@ -2,12 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
-  Settings,
-  Flag,
-  Check,
-  X,
-  CheckCircle2,
-  ClipboardList,
+  Settings, Flag, Check, X, CheckCircle2, Users,
 } from "lucide-react";
 import {
   getAdminPendingOrdersApi,
@@ -27,18 +22,18 @@ const AdminDashboard = () => {
 
   const { data: pendingData, isLoading: pendingLoading } = useQuery({
     queryKey: ["admin-pending-orders"],
-    queryFn: () => getAdminPendingOrdersApi(),
+    queryFn:  () => getAdminPendingOrdersApi(),
   });
 
   const { data: allData, isLoading: allLoading } = useQuery({
     queryKey: ["admin-all-orders"],
-    queryFn: () => getAdminAllOrdersApi(),
-    enabled: activeTab === "all",
+    queryFn:  () => getAdminAllOrdersApi(),
+    enabled:  activeTab === "all",
   });
 
   const { data: reportsData } = useQuery({
     queryKey: ["admin-reports", "pending"],
-    queryFn: () => getAllReportsApi({ status: "pending" }),
+    queryFn:  () => getAllReportsApi({ status: "pending" }),
   });
 
   const pendingReportsCount = reportsData?.pagination?.total || 0;
@@ -72,10 +67,10 @@ const AdminDashboard = () => {
     .toFixed(2);
 
   const STATS = [
-    { label: "Pending Approval", value: pendingData?.pagination?.total || 0,  colorClass: "stat-value--yellow"  },
-    { label: "Total Orders",     value: allData?.pagination?.total    || 0,    colorClass: "stat-value--blue"    },
-    { label: "Platform (2% cut)",value: `$${platformFee}`,                     colorClass: "stat-value--purple"  },
-    { label: "Pending Reports",  value: pendingReportsCount,                   colorClass: "stat-value--red"     },
+    { label: "Pending Approval", value: pendingData?.pagination?.total || 0, colorClass: "stat-value--yellow" },
+    { label: "Total Orders",     value: allData?.pagination?.total    || 0,  colorClass: "stat-value--blue"   },
+    { label: "Platform (2% cut)",value: `$${platformFee}`,                   colorClass: "stat-value--purple" },
+    { label: "Pending Reports",  value: pendingReportsCount,                 colorClass: "stat-value--red"    },
   ];
 
   return (
@@ -86,25 +81,31 @@ const AdminDashboard = () => {
         <div className="admin-header">
           <div>
             <h1 className="admin-title">
-              <Settings size={26} />
-              Admin Dashboard
+              <Settings size={26} /> Admin Dashboard
             </h1>
-            <p className="admin-subtitle">
-              Manage orders and release payments to sellers
-            </p>
+            <p className="admin-subtitle">Manage orders and release payments to sellers</p>
           </div>
 
-          {/* Reports Quick Link */}
-          <Link
-            to="/admin/reports"
-            className={`admin-reports-link ${pendingReportsCount > 0 ? "has-pending" : ""}`}
-          >
-            <Flag size={16} />
-            User Reports
-            {pendingReportsCount > 0 && (
-              <span className="admin-reports-badge">{pendingReportsCount}</span>
-            )}
-          </Link>
+          {/* Quick Links */}
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+            {/* Users Link */}
+            <Link to="/admin/users" className="admin-reports-link">
+              <Users size={16} />
+              Manage Users
+            </Link>
+
+            {/* Reports Link */}
+            <Link
+              to="/admin/reports"
+              className={`admin-reports-link ${pendingReportsCount > 0 ? "has-pending" : ""}`}
+            >
+              <Flag size={16} />
+              User Reports
+              {pendingReportsCount > 0 && (
+                <span className="admin-reports-badge">{pendingReportsCount}</span>
+              )}
+            </Link>
+          </div>
         </div>
 
         {/* Stats */}
@@ -145,22 +146,15 @@ const AdminDashboard = () => {
             <table className="admin-table">
               <thead>
                 <tr className="admin-table-head-row">
-                  {["Order ID", "Buyer", "Seller", "Service", "Amount", "Fee (2%)", "Seller Gets", "Status", "Actions"].map(
-                    (h) => (
-                      <th key={h} className="admin-th">{h}</th>
-                    )
+                  {["Order ID","Buyer","Seller","Service","Amount","Fee (2%)","Seller Gets","Status","Actions"].map(
+                    (h) => <th key={h} className="admin-th">{h}</th>
                   )}
                 </tr>
               </thead>
               <tbody>
                 {orders?.map((order, i) => (
-                  <tr
-                    key={order._id}
-                    className={`admin-table-row ${i % 2 !== 0 ? "striped" : ""}`}
-                  >
-                    <td className="admin-td admin-order-id">
-                      #{order._id.slice(-6).toUpperCase()}
-                    </td>
+                  <tr key={order._id} className={`admin-table-row ${i % 2 !== 0 ? "striped" : ""}`}>
+                    <td className="admin-td admin-order-id">#{order._id.slice(-6).toUpperCase()}</td>
                     <td className="admin-td">
                       <div className="admin-user-name">{order.buyerId?.name}</div>
                       <div className="admin-user-email">{order.buyerId?.email}</div>
@@ -169,30 +163,18 @@ const AdminDashboard = () => {
                       <div className="admin-user-name">{order.sellerId?.name}</div>
                       <div className="admin-user-email">{order.sellerId?.email}</div>
                     </td>
-                    <td className="admin-td admin-gig-title">
-                      {order.gigId?.title}
-                    </td>
+                    <td className="admin-td admin-gig-title">{order.gigId?.title}</td>
                     <td className="admin-td admin-amount">${order.amount}</td>
                     <td className="admin-td admin-fee">${order.platformFee?.toFixed(2)}</td>
                     <td className="admin-td admin-earning">${order.sellerEarning?.toFixed(2)}</td>
-                    <td className="admin-td">
-                      <Badge status={order.status} />
-                    </td>
+                    <td className="admin-td"><Badge status={order.status} /></td>
                     <td className="admin-td">
                       {!order.adminApproved && order.isPaid && (
                         <div className="admin-actions">
-                          <button
-                            className="btn btn-primary btn-sm"
-                            onClick={() => approveOrder(order._id)}
-                            disabled={approving}
-                          >
+                          <button className="btn btn-primary btn-sm" onClick={() => approveOrder(order._id)} disabled={approving}>
                             <Check size={13} /> Approve
                           </button>
-                          <button
-                            className="btn btn-danger btn-sm"
-                            onClick={() => rejectOrder(order._id)}
-                            disabled={rejecting}
-                          >
+                          <button className="btn btn-danger btn-sm" onClick={() => rejectOrder(order._id)} disabled={rejecting}>
                             <X size={13} /> Reject
                           </button>
                         </div>
