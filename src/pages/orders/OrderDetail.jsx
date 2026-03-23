@@ -12,7 +12,8 @@ import {
 import { getOrderByIdApi, updateOrderStatusApi } from "../../api/orderApi.js";
 import { getMessagesApi, sendMessageApi } from "../../api/messageApi.js";
 import { submitReviewApi } from "../../api/reviewApi.js";
-import { checkMyReportApi } from "../../api/Reportapi.js";
+import { checkMyReportApi } from "../../api/reportApi.js";
+
 import { useAuth } from "../../context/AuthContext.jsx";
 import Badge from "../../components/common/Badge.jsx";
 import StarRating from "../../components/common/StarRating.jsx";
