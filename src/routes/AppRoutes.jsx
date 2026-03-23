@@ -34,7 +34,7 @@ import EditProfile from "../pages/profile/EditProfile.jsx";
 
 // Loaders
 import Loader from "../components/common/Loader.jsx";
-import Payment from "../pages/payment/Payment.jsx";
+import Payment from "../pages/payment/payment.jsx";
 import AdminDashboard from "../pages/dashboard/AdminDashboard.jsx";
 
 // ─── Protected Route ───
