@@ -19,7 +19,7 @@ import {
   getAllReportsApi,
   updateReportStatusApi,
   deleteReportedUserApi,
-} from "../../api/Reportapi.js";
+} from "../../api/reportApi.js";
 import Loader from "../../components/common/Loader.jsx";
 import toast from "react-hot-toast";
 import "./Dashboard.css";
