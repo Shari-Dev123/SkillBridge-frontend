@@ -11,7 +11,7 @@ import {
   FileText,
   Loader2,
 } from "lucide-react";
-import { submitReportApi } from "../../api/Reportapi.js";
+import { submitReportApi } from "../../api/reportApi.js";
 import toast from "react-hot-toast";
 import "./ReportModal.css";
 
