@@ -2,14 +2,14 @@
    Profile.css  —  EditProfile + SellerProfile
    ============================================================= */
 
-/* ── Shared Page layoutt ── */
+/* ── Shared Page layout ── */
 .profile-page {
   padding: var(--space-xl) 0 var(--space-3xl);
   background: var(--gray-100);
   min-height: calc(100vh - var(--navbar-height));
 }
 
-.profile-layoutt {
+.profile-layout {
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: var(--space-xl);
@@ -438,7 +438,7 @@
   min-height: calc(100vh - var(--navbar-height));
 }
 
-.seller-profile-layoutt {
+.seller-profile-layout {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: var(--space-xl);
@@ -884,8 +884,8 @@
 }
 
 @media (max-width: 768px) {
-  .profile-layoutt,
-  .seller-profile-layoutt {
+  .profile-layout,
+  .seller-profile-layout {
     grid-template-columns: 1fr;
   }
 

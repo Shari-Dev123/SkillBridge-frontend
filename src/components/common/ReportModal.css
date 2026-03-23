@@ -176,7 +176,7 @@
   background: var(--gray-50, #f9fafb);
 }
 
-/* ── Submit button inner layoutt ── */
+/* ── Submit button inner layout ── */
 .report-submit-inner {
   display: flex;
   align-items: center;

@@ -1,9 +1,9 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 
-// layoutt
-import Navbar from "../components/layoutt/Navbar.jsx";
-import Footer from "../components/layoutt/Footer.jsx";
+// layout
+import Navbar from "../components/layout/Navbar.jsx";
+import Footer from "../components/layout/Footer.jsx";
 
 import AdminReports from "../pages/dashboard/AdminReports.jsx";
 

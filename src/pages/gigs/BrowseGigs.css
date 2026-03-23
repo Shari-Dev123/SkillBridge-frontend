@@ -6,7 +6,7 @@
   min-height: calc(100vh - var(--navbar-height));
 }
 
-.browse-layoutt {
+.browse-layout {
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: var(--space-xl);
@@ -162,7 +162,7 @@
 }
 
 @media (max-width: 768px) {
-  .browse-layoutt {
+  .browse-layout {
     grid-template-columns: 1fr;
   }
 

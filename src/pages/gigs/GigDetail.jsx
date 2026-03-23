@@ -86,7 +86,7 @@ const GigDetail = () => {
 
   return (
     <div className="gig-detail-page">
-      <div className="container gig-detail-layoutt">
+      <div className="container gig-detail-layout">
 
         {/* ── Left Column ── */}
         <div className="gig-detail-left">
