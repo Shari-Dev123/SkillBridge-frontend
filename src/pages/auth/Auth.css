@@ -16,6 +16,11 @@
   padding: var(--space-2xl);
   box-shadow: var(--shadow-md);
 }
+.role-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .auth-header {
   text-align: center;
