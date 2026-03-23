@@ -64,7 +64,7 @@ const SellerProfile = () => {
 
   return (
     <div className="seller-profile-page">
-      <div className="container seller-profile-layout">
+      <div className="container seller-profile-layoutt">
 
         {/* ── Left Sidebar ── */}
         <aside className="seller-profile-sidebar">

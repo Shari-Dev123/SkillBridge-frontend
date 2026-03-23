@@ -199,7 +199,7 @@ const EditProfile = () => {
 
   return (
     <div className="profile-page">
-      <div className="container profile-layout">
+      <div className="container profile-layoutt">
 
         {/* ── Sidebar ── */}
         <aside className="profile-sidebar">

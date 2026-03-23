@@ -110,7 +110,7 @@ const BrowseGigs = () => {
 
   return (
     <div className="browse-page">
-      <div className="container browse-layout">
+      <div className="container browse-layoutt">
 
         {/* ── Sidebar ── */}
         <aside className="browse-sidebar">

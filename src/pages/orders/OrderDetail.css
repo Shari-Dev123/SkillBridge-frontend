@@ -4,7 +4,7 @@
   min-height: calc(100vh - var(--navbar-height));
 }
 
-.order-detail-layout {
+.order-detail-layoutt {
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: var(--space-xl);
@@ -374,7 +374,7 @@
 }
 
 @media (max-width: 768px) {
-  .order-detail-layout {
+  .order-detail-layoutt {
     grid-template-columns: 1fr;
   }
 

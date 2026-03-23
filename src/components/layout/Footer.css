@@ -8,7 +8,7 @@
   margin-top: auto;
 }
 
-/* ── Inner Layout ── */
+/* ── Inner layoutt ── */
 .footer__inner {
   display: flex;
   gap: var(--space-3xl);

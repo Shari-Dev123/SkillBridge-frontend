@@ -103,7 +103,7 @@ const OrderDetail = () => {
 
   return (
     <div className="order-detail-page">
-      <div className="container order-detail-layout">
+      <div className="container order-detail-layoutt">
 
         {/* ── Left Column ── */}
         <div className="order-detail-left">
