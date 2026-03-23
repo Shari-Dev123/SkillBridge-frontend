@@ -7,6 +7,8 @@ import {
   PenLine,
   Zap,
   SearchX,
+  SlidersHorizontal,
+  X,
 } from "lucide-react";
 import { getGigsApi } from "../../api/gigApi.js";
 import StarRating from "../../components/common/StarRating.jsx";
@@ -49,6 +51,7 @@ const GigPlaceholder = ({ category }) => (
 const BrowseGigs = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(1);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const search   = searchParams.get("search")   || "";
   const category = searchParams.get("category") || "";
@@ -75,6 +78,16 @@ const BrowseGigs = () => {
 
   useEffect(() => { setPage(1); }, [search, category]);
 
+  // Body scroll band karo jab sidebar open ho mobile par
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [sidebarOpen]);
+
   const handleCategoryChange = (val) => {
     const params = new URLSearchParams(searchParams);
     if (val) params.set("category", val);
@@ -91,6 +104,7 @@ const BrowseGigs = () => {
     if (filters.sort)     params.set("sort",     filters.sort);     else params.delete("sort");
     setSearchParams(params);
     setPage(1);
+    setSidebarOpen(false); // mobile par apply ke baad band karo
   };
 
   const handleFilterReset = () => {
@@ -100,6 +114,7 @@ const BrowseGigs = () => {
     if (category) params.set("category", category);
     setSearchParams(params);
     setPage(1);
+    setSidebarOpen(false);
   };
 
   const pageTitle = search
@@ -112,8 +127,46 @@ const BrowseGigs = () => {
     <div className="browse-page">
       <div className="container browse-layout">
 
+        {/* ── Mobile Filter Button ── */}
+        <div className="mobile-filter-bar">
+          <div>
+            <h1 className="browse-title">{pageTitle}</h1>
+            {data && (
+              <p className="browse-count">
+                {data.pagination?.total || 0} services available
+              </p>
+            )}
+          </div>
+          <button
+            className="mobile-filter-btn"
+            onClick={() => setSidebarOpen(true)}
+          >
+            <SlidersHorizontal size={18} />
+            Filters
+          </button>
+        </div>
+
+        {/* ── Overlay (mobile) ── */}
+        {sidebarOpen && (
+          <div
+            className="sidebar-overlay"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
         {/* ── Sidebar ── */}
-        <aside className="browse-sidebar">
+        <aside className={`browse-sidebar ${sidebarOpen ? "sidebar--open" : ""}`}>
+          {/* Mobile sidebar header */}
+          <div className="sidebar-mobile-header">
+            <span className="sidebar-mobile-title">Filters</span>
+            <button
+              className="sidebar-close-btn"
+              onClick={() => setSidebarOpen(false)}
+            >
+              <X size={20} />
+            </button>
+          </div>
+
           <div className="sidebar-section">
             <h3 className="sidebar-title">Category</h3>
             <div className="sidebar-categories">
@@ -182,6 +235,7 @@ const BrowseGigs = () => {
 
         {/* ── Main ── */}
         <div className="browse-main">
+          {/* Desktop header (sidebar ke saath) */}
           <div className="browse-header">
             <div>
               <h1 className="browse-title">{pageTitle}</h1>
